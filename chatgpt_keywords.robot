@@ -12,6 +12,7 @@ ${db_path}=     ./database/db_rf_chatgpt.db
 *** Keywords ***
 Connect to SQLiteDB
     [Documentation]    DEPRECATED: Connect To Database Using Custom Params    sqlite3    database="${db_path}", isolation_level=None
+    ...    So we have to use for instance this Database library keyword: "Connect To Database"
     [Tags]    db    smoke
     Connect To Database    sqlite3    ${db_path}    
 
@@ -53,7 +54,6 @@ Insert ChatGPT content in database
     Create Directory If Does Not Exist    ./database
 #    verify if db exists, if not, create db with 2 tables ("texts" and "images" and 3 columns (test name, date, generated_content)
     Create Database If Does Not Exist    ./database/db_rf_chatgpt.db
-#    Connect To Database Using Custom Params    sqlite3    database="${db_path}", isolation_level=None
 #    if content starts with "https://" (url), so insert it in the tables "image"
     ${datetime}=    Get Current Date    result_format=%Y-%m-%d${SPACE}%H-%M-%S
     ${content_starts_with}=    Evaluate    "${chatgpt_content_to_insert_in_db}".startswith("https://")

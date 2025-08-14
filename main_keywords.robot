@@ -43,7 +43,7 @@ Create database if does not exist
     [Arguments]    ${file_path}
     ${file_exists}=    File Exists    ${file_path}
     IF    '${file_exists}' == 'False'
-        Connect To Database Using Custom Params    sqlite3    database="${file_path}", isolation_level=None
+        Connect To Database    sqlite3    ${file_path}
         Execute SQL String    CREATE TABLE texts (id INTEGER PRIMARY KEY AUTOINCREMENT,test_name varchar,datetime varchar,content varchar);
         Execute SQL String    CREATE TABLE images (id INTEGER PRIMARY KEY AUTOINCREMENT,test_name varchar,datetime varchar,content varchar);
         Log    The database located in the path "${file_path}" has been created.

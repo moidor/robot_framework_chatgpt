@@ -16,10 +16,8 @@ Suite Teardown      Disconnect From Database
 
 *** Variables ***
 @{chatgpt_conversation}             @{EMPTY}
-${path_text_file_conversation}      C:/Users/Cham/PycharmProjects/robot_framework_chatgpt/chatgpt_conversations/conversations.txt
-${path_image_description}           C:/Users/Cham/PycharmProjects/robot_framework_chatgpt/chatgpt_conversations/image_description.txt 
-${my_text}                          ${EMPTY}
-${my_image}                         ${EMPTY}
+${path_text_file_conversation}      ${EXECDIR}/chatgpt_conversations/conversations.txt
+${path_image_description}           ${EXECDIR}/chatgpt_conversations/image_description.txt
 
 
 *** Test Cases ***
